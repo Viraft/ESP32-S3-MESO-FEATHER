@@ -1,0 +1,19 @@
+# KiCad temporary & backup files
+*.tmp
+*-bak
+*.bak
+*.bck
+*-cache.lib
+*.kicad_pcb-bak
+*.kicad_sch-bak
+_autosave-*
+fp-info-cache
+
+# Gerber output folder (track production files separately or ignore local builds)
+/hardware/plots/
+
+# OS / Editor specific
+.DS_Store
+Thumbs.db
+.vscode/
+.idea/
