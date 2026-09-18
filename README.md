@@ -1,31 +1,48 @@
-# [ESP32-S3-MESO-FEATHER]
+# ESP32-S3-MESO-FEATHER
 
-An open-source hardware project designed in KiCad.
+Open-source ESP32-S3 hardware project with a practical bring-up path from PCB design to first firmware smoke tests.
 
-## 🚧 Project Status: PCB Design Complete (Untested)
-- [x] **Schematic Capture:** Complete
-- [x] **PCB Layout & Routing:** Complete
-- [ ] **Prototypes Ordered:** Pending
-- [ ] **Hardware Assembly & Validation:** Pending
-- [ ] **Firmware Development:** Planned
+## Choose Your Goal
+Start with one of these paths:
+1. Review/edit PCB design in KiCad
+2. Generate manufacturing outputs (Gerber/drill/BOM)
+3. Start firmware development for board bring-up
 
-> **Note:** This design is currently in the **PCB Complete** stage. The hardware files are available for review, but boards have not yet been fabricated or verified in real life.
+## Required Tools
+- **KiCad 8.x** (schematic/PCB)
+- **Git** (version control)
+- **Optional for firmware:** VS Code + PlatformIO extension
 
----
+## Repository Structure
+- `/hardware` — KiCad source files (`.kicad_pro`, `.kicad_sch`, `.kicad_pcb`)
+- `/production` — manufacturing outputs (Gerber, drill, BOM)
+- `/firmware` — PlatformIO starter project for ESP32-S3 smoke tests
 
-## 🛠 Hardware Specs
-- **EDA Tool:** KiCad 8.0 (or your KiCad version)
-- **Board Dimensions:**1INCHx 2.5 ICNH
-- **Layer Count:** 2-layer 
-- **Core Components:ESP32 S3**
+## Current Status
+The repository is now prepared for setup, but **real KiCad project files are still required** in `/hardware` before fabrication outputs can be generated.
 
----
+## Hardware Workflow
+1. Put KiCad project files into `/hardware`
+2. Open project in KiCad 8.x
+3. Run ERC and DRC
+4. Verify rules, footprints, and ESP32-S3 pin mapping
+5. Export Gerber, drill, and BOM to `/production`
 
-## 📁 Repository Structure
-- `hardware/`: KiCad project files (`.kicad_sch`, `.kicad_pcb`).
-- `production/`: Gerber files, drill files, and BOM for ordering.
+## Prototype Workflow
+1. Order PCB from `/production` outputs
+2. Assemble first prototype
+3. Run bring-up checks:
+   - Power rails
+   - USB connection
+   - Boot mode behavior
+   - Programming/upload path
 
----
+## Firmware Quick Start (PlatformIO)
+1. Open `/firmware` in VS Code with PlatformIO
+2. Build and upload smoke test
+3. Validate:
+   - UART output
+   - LED blink behavior
+   - Basic Wi-Fi init (optional expansion)
 
-## 📜 License
-Hardware design files are released under the [CERN-OHL-P-2.0](https://ohwr.org/cernohl) (Permissive) license.
+See `/firmware/src/main.cpp` for starter LED + UART smoke test.
